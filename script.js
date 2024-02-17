@@ -10,7 +10,7 @@ function ranDance() {
 
 const img = document.getElementById("img");
 
-const rutaBase = "resources/";
+const rutaBase = "/resources/";
 
 dance.src = rutaBase + ranDance();
 
