@@ -10,7 +10,7 @@ body {
 .cuadro {
   overflow:scroll;
   background-color: white;
-  width: 400px;
+  width: 350px;
   max-width: 80%;
   margin: 0 auto;
   padding: 20px;
