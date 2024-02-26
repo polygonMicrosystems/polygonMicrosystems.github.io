@@ -8,7 +8,6 @@ body {
 }
 
 .cuadro {
-  overflow:scroll;
   background-color: white;
   width: 350px;
   max-width: 80%;
