@@ -1,7 +1,7 @@
 const danceArray = [
-  "funky.webp",
-  "donkey.webp",
-  "bowser.webp",
+  "funky.gif",
+  "donkey.gif",
+  "bowser.gif",
 ];
 
 function ranDance() {
