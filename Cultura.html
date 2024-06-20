@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de México - Cultura y Recreación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #90909;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 100px 20px 20px 20px;
+        }
+
+        #cultura {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 2s;
+        }
+
+        h2#cultura-title {
+            background-color: #206291;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 3em;
+            font-family: 'Brush Script MT', cursive;
+            animation: titleBounce 2s infinite;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        p strong {
+            color: #000;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                flex-direction: row;
+            }
+
+            .card img {
+                width: 40%;
+                height: 250px;
+            }
+
+            .card-content {
+                width: 60%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes titleBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#ferias">Ferias</a>
+        <a href="#fiestas">Fiestas Patronales</a>
+        <a href="#festividades">Festividades Importantes</a>
+        <a href="index.html">Regresar a Inicio</a>
+    </nav>
+
+    <div class="container">
+
+        <div id="cultura">
+            <h2 id="cultura-title">CULTURA Y TRADICIONES DEL ESTADO DE MÉXICO</h2>
+            <p>El Estado de México es una entidad federativa de México que alberga una rica diversidad de tradiciones y elementos culturales. A continuación, se presenta un compendio de las principales celebraciones y tradiciones que forman parte de la identidad cultural de esta región.</p>
+        </div>
+
+        <section id="ferias">
+            <h2 class="section-title">Ferias</h2>
+
+            <div class="card">
+                <img src="IMG/ferianuez1.jpeg" alt="Feria de la Nuez en Amacameca">
+                <div class="card-content">
+                    <h3>Feria de la Nuez en Amacameca</h3>
+                    <p>Promueve el uso comercial de la nuez de Castilla. Destaca la gastronomía y promueve productos locales.</p>
+                    <p>Gastronomía, repostería y venta de dulces y licores artesanales.</p>
+                    <p><strong>Ubicación:</strong> Amacameca, Estado de México.</p>
+                    <p><strong>Fechas de celebración:</strong> Julio - agosto.</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong> Destaca la gastronomía y promueve productos locales.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/feriabar1.jpeg" alt="Feria de la Barbacoa en Capulhuac">
+                <div class="card-content">
+                    <h3>Feria de la Barbacoa en Capulhuac</h3>
+                    <p>Celebrada en febrero o marzo para resaltar la diversidad gastronómica de la región.</p>
+                    <p>Elaboración de barbacoa y diversidad gastronómica local.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Capulhuac.</p>
+                    <p><strong>Fechas de celebración:</strong> Febrero - marzo</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong>Resalta la gastronomía y la diversidad cultural.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/feriayfiesta1.jpg" alt="Feria y Fiesta de San Isidro Labrador en Metepec">
+                <div class="card-content">
+                    <h3>Feria y Fiesta de San Isidro Labrador en Metepec</h3>
+                    <p>Comienza 52 días después del Viernes Santo y honra a San Isidro Labrador.</p>
+                    <p>Incluye desfiles y la entrega del Premio Nacional de Alfarería Modesta Fernández.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Metepec.</p>
+                    <p><strong>Fechas de celebración:</strong> Mayo - junio.</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong> Destaca el trabajo artesanal y la cultura local.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fiestas">
+            <h2 class="section-title">Fiestas Patronales</h2>
+
+            <div class="card">
+                <img src="IMG/fiestaaya1.jpg" alt="Fiesta Patronal de Ayapango">
+                <div class="card-content">
+                    <h3>Fiesta Patronal de Ayapango</h3>
+                    <p>Incluye la representación de danzas típicas de la región. Resalta la cultura y tradiciones locales.</p>
+                    <p>Danzas típicas, desfiles y música.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Ayapango.</p>
+                    <p><strong>Fechas de celebración:</strong> 25 de julio.</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong> Resalta la cultura y tradiciones locales.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/fiestasanta1.jpg" alt="Fiesta del Señor de Santa María en Valle de Bravo">
+                <div class="card-content">
+                    <h3>Fiesta del Señor de Santa María en Valle de Bravo</h3>
+                    <p>Celebración con feria, música y danzas tradicionales. Promueve la tradición y la identidad local.</p>
+                    <p>Feria, música y danzas de Concheros y de los Doce Pares.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Valle de Bravo.</p>
+                    <p><strong>Fechas de celebración:</strong> 3 de mayo.</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong> Promueve la tradición y la identidad local.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/fiestapadre1.jpeg" alt="Nuestro Padre Jesús en Tenango del Valle">
+                <div class="card-content">
+                    <h3>Nuestro Padre Jesús en Tenango del Valle</h3>
+                    <p>Celebración el 15 de enero con feria y danzas tradicionales.</p>
+                    <p>Feria y danzas de Moros, Tecuanes y Concheros.</p>
+                    <p><strong>Ubicación:</strong> Tenango del Valle, Estado de México.</p>
+                    <p><strong>Fechas de celebración:</strong> 15 de enero </p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong>Fomenta la tradición y la economía local.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/fiestaan1.jpeg" alt="Fiesta de San Antonio de Padua en Texcoco">
+                <div class="card-content">
+                    <h3>Fiesta de San Antonio de Padua en Texcoco</h3>
+                    <p>Celebración el 13 de junio con música y danzas de Vaqueros y Santiagueros.</p>
+                    <p>Música y danzas de Vaqueros y Santiagueros.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Texcoco.</p>
+                    <p><strong>Fechas de celebración:</strong> 13 de junio </p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong>Resalta la devoción y la tradición local.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="festividades">
+            <h2 class="section-title">Festividades Importantes</h2>
+
+            <div class="card">
+                <img src="IMG/Quimera.jpeg" alt="Festival Cultural Quimera en Metepec">
+                <div class="card-content">
+                    <h3>Festival Cultural Quimera en Metepec</h3>
+                    <p>Resalta la cultura local con actividades artísticas y educativas.</p>
+                    <p>Teatro, danza, exposiciones, conferencias y talleres.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Metepec.</p>
+                    <p><strong>Fechas de celebración:</strong> Octubre</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong> Fomenta la apreciación del arte y la cultura.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/festivaltex.jpg" alt="Festival Internacional de Arte y Cultura en Texcoco">
+                <div class="card-content">
+                    <h3>Festival Internacional de Arte y Cultura en Texcoco</h3>
+                    <p>Resalta la cultura local e internacional. Incluye teatro, danza y exposiciones.</p>
+                    <p>Teatro, danza, exposiciones, conferencias y talleres.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Texcoco.</p>
+                    <p><strong>Fechas de celebración:</strong> Octubre</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong>Promueve la apreciación cultural y artística.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/festivallana.jpeg" alt="Festival de la Lana y la Latonería en Chimalhuacán">
+                <div class="card-content">
+                    <h3>Festival de la Lana y la Latonería en Chimalhuacán</h3>
+                    <p>Fomenta la apreciación del arte y las tradiciones locales.</p>
+                    <p>Exposiciones de lana, latón, danza, música y conferencias.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Chimalhuacán.</p>
+                    <p><strong>Fechas de celebración:</strong> Marzo.</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong>Fomenta la apreciación del arte y las tradiciones locales.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="IMG/festivalmasca.jpeg" alt="Festival de Máscaras y Rito de las Cantonas en Chalma">
+                <div class="card-content">
+                    <h3>Festival de Máscaras y Rito de las Cantonas en Chalma</h3>
+                    <p>Promueve la tradición de la mascarada y el rito de las Cantonas.</p>
+                    <p>Danza, música y el rito de las Cantonas.</p>
+                    <p><strong>Ubicación:</strong> Municipio de Chalma.</p>
+                    <p><strong>Fechas de celebración:</strong> Octubre</p>
+                    <p><strong>Importancia cultural y social para la comunidad</strong>Fomenta la tradición y la identidad cultural.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="Cultura.js"></script>
+
+</body>
+
+</html>

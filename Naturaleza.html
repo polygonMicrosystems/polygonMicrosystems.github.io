@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lugares Turísticos del Estado de México</title>
+  <style>
+    /* Estilos CSS */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f5f5f5;
+      background-image: url('textura.png');
+      background-repeat: repeat;
+    }
+
+    header {
+      background-color: #047f1c;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f5f5f5;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #047f1c;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .contenido {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin: 20px;
+      overflow-y: auto;
+    }
+
+    .punto {
+      display: none;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .punto img {
+      max-width: 45%;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+
+    .regresar {
+      color: #047f1c;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #047f1c;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .descripcion {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .descripcion img {
+      max-width: 45%;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+    /* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .descripcion, .punto {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .descripcion img, .punto img {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Naturaleza y Aventura</h1>
+  </header>
+
+<nav>
+  <a onclick="mostrarPunto('inicio')">Inicio</a>
+  <a onclick="mostrarPunto('punto1')">Nevado de Toluca</a>
+  <a onclick="mostrarPunto('punto2')">Iztaccíhuatl-Popocatépetl</a>
+  <a onclick="mostrarPunto('punto3')">Sierra Morelos</a>
+  <a onclick="mostrarPunto('punto4')">Salto de Chihuahua</a>
+  <a onclick="mostrarPunto('punto5')">Parque Hermenegildo Galeana</a>
+  <a onclick="mostrarPunto('punto6')">El Ocotal</a>
+  <a onclick="mostrarPunto('punto7')">San Sebastián Luvianos</a>
+  <a onclick="mostrarPunto('punto8')">Xocotépetl</a>
+  <a onclick="mostrarPunto('punto9')">Centro Ceremonial Mazahua</a>
+  <a onclick="mostrarPunto('punto10')">Parque Ecológico de Cacalomacán</a>
+</nav>
+
+  <div class="contenido">
+    <div class="descripcion" id="inicio">
+      <div>
+        <h2>Bienvenidos al Estado de México</h2>
+        <p>El Estado de México te ofrece una variedad de destinos turísticos que combinan naturaleza, aventura y cultura. Desde imponentes volcanes y parques nacionales hasta hermosas reservas naturales, cada lugar promete una experiencia única. Ven y descubre la riqueza natural de este maravilloso estado.</p>
+        <p>Explora los paisajes montañosos del Nevado de Toluca, donde puedes disfrutar de actividades al aire libre como el senderismo y el ciclismo de montaña. O aventúrate en el Parque Nacional Iztaccíhuatl-Popocatépetl, hogar de dos de los volcanes más emblemáticos de México.</p>
+        <a href="index.html" class="regresar" id="back-button">Regresar al Inicio</a>
+      </div>
+      <img src="IMG/mapa-estado-mexico.jpg" alt="Paisaje del Estado de México">
+    </div>
+
+    <div class="punto" id="punto1">
+      <div>
+        <h2>1. Área de Protección de Flora y Fauna Nevado de Toluca</h2>
+        <p>Ubicación: Aproximadamente 110 kilómetros de la Ciudad de México y a 47 kilómetros de Toluca.</p>
+        <p>Descripción: Este parque es conocido por el volcán extinto Nevado de Toluca, que ofrece actividades como senderismo, montañismo y bicicleta de montaña. Además, es parte de las Áreas Naturales Protegidas del Estado de México.</p>
+        <p>Información adicional: Cuenta con el Parque Ecológico de Cacalomacán, que ofrece cabañas, zona de campamento y actividades como ciclismo de montaña y cabalgata. Se puede disfrutar de la flora y fauna típicas de la región, como bosques de cedro y pino, así como mapaches y ardillas.</p>
+      </div>
+      <img src="IMG/nevado-toluca.jpg" alt="Nevado de Toluca">
+      <img src="IMG/nevado-toluca-2.jpg" alt="Nevado de Toluca">
+    </div>
+
+    <div class="punto" id="punto2">
+      <div>
+        <h2>2. Parque Nacional Iztaccíhuatl-Popocatépetl</h2>
+        <p>Ubicación: Entre los límites del Estado de México y Puebla.</p>
+        <p>Descripción: Este parque alberga dos de los volcanes más emblemáticos de México, el Iztaccíhuatl y el Popocatépetl, y es ideal para actividades de alta montaña.</p>
+        <p>Información adicional: Es una de las áreas protegidas federales del Estado de México y es conocida por su importancia ecológica y cultural.</p>
+      </div>
+      <img src="IMG/iztaccihuatl-popocatepetl.jpg" alt="Iztaccíhuatl-Popocatépetl">
+      <img src="IMG/iztaccihuatl-popocatepetl-2.webp" alt="Iztaccíhuatl-Popocatépetl">
+    </div>
+
+    <div class="punto" id="punto3">
+      <div>
+        <h2>3. Parque Estatal Sierra Morelos</h2>
+        <p>Ubicación: Entre los municipios de Toluca y Zinacantepec.</p>
+        <p>Descripción: Ofrece un ajolotario, trotapista, kioscos de esparcimiento familiar, cancha de futbol rápido y granjita. Es una opción para actividades al aire libre y aprendizaje sobre la fauna local.</p>
+        <p>Información adicional: Forma parte de las áreas naturales protegidas estatales y es accesible para visitantes de todas las edades.</p>
+      </div>
+        <img src="IMG/sierra-morelos.jpg" alt="Sierra Morelos">
+        <img src="IMG/sierra-morelos-2.jpg" alt="Sierra Morelos">
+      </div>
+
+      <div class="punto" id="punto4">
+        <div>
+          <h2>4. Salto de Chihuahua</h2>
+          <p>Ubicación: Ubicado en los municipios de Donato Guerra e Ixtapan del Oro, a 92 km. de la Ciudad de Toluca.</p>
+          <p>Descripción: Es un lugar ideal para realizar senderismo, paisajismo y pasar tiempo en familia o con amigos. El lugar en general goza de una belleza natural muy particular, producto de su altura sobre el nivel del mar y de sus abundantes recursos del suelo y agua posteriores a la caída.</p>
+          <p>Información adicional: Se recomienda visitar con precaución y respeto por el entorno natural.</p>
+        </div>
+        <img src="IMG/salto-chihuahua.jpg" alt="Salto de Chihuahua">
+        <img src="IMG/salto-chihuahua-2.jpg" alt="Salto de Chihuahua">
+      </div>
+
+      <div class="punto" id="punto5">
+        <div>
+          <h2>5. Parque Hermenegildo Galeana</h2>
+          <p>Ubicación: En el municipio de Tenancingo.</p>
+          <p>Descripción: Permite realizar actividades como senderismo, campismo, pasear a caballo, y conocer la antigua Hacienda Monte de Pozo y los manantiales de aguas cristalinas.</p>
+          <p>Información adicional: Es un espacio que combina la historia local con la belleza natural.</p>
+        </div>
+        <img src="IMG/parque-hermenegildo-galeana.jpeg" alt="Parque Hermenegildo Galeana">
+        <img src="IMG/parque-hermenegildo-galeana-2.jpg" alt="Parque Hermenegildo Galeana">
+      </div>
+
+      <div class="punto" id="punto6">
+        <div>
+          <h2>6. El Ocotal</h2>
+          <p>Ubicación: En el ejido de Santiago Maxdá, municipio de Timilpan.</p>
+          <p>Descripción: Centro de conservación de especies que alberga en 11 hectáreas, 131 ejemplares de 17 especies de animales bajo cuidado humano.</p>
+          <p>Información adicional: Es un lugar para aprender sobre la conservación de la fauna local y disfrutar de la naturaleza.</p>
+        </div>
+        <img src="IMG/el-ocotal.jpg" alt="El Ocotal">
+        <img src="IMG/el-ocotal-2.jpg" alt="El Ocotal">
+      </div>
+
+      <div class="punto" id="punto7">
+        <div>
+          <h2>7. San Sebastián Luvianos</h2>
+          <p>Ubicación: En el municipio de Luvianos.</p>
+          <p>Descripción: Forma parte de la extensión territorial del Parque Natural de Recreación Popular, denominado Sierra de Nanchititla.</p>
+          <p>Información adicional: Ofrece una experiencia de contacto con la naturaleza en un área menos explorada.</p>
+        </div>
+        <img src="IMG/san-sebastian-luvianos.jpeg" alt="San Sebastián Luvianos">
+        <img src="IMG/san-sebastian-luvianos-2.jpg" alt="San Sebastián Luvianos">
+      </div>
+
+      <div class="punto" id="punto8">
+        <div>
+          <h2>8. Xocotépetl</h2>
+          <p>Ubicación: En el Pueblo con Encanto de Jocotitlán.</p>
+          <p>Descripción: Ofrece el Parque Ecoturístico con su tradicional tirolesa.</p>
+          <p>Información adicional: Es un destino para los amantes de la aventura y las actividades al aire libre.</p>
+        </div>
+        <img src="IMG/xocoteptl.jpeg" alt="Xocotépetl">
+        <img src="IMG/xocoteptl-2.jpeg" alt="Xocotépetl">
+      </div>
+
+      <div class="punto" id="punto9">
+        <div>
+          <h2>9. Centro Ceremonial Mazahua</h2>
+          <p>Ubicación: En San Felipe del Progreso.</p>
+          <p>Descripción: Permite un encuentro con la naturaleza que se fusiona con el misticismo mazahua.</p>
+          <p>Información adicional: Es un lugar para experimentar la cultura local y disfrutar de la tranquilidad del entorno.</p>
+        </div>
+        <img src="IMG/centro-ceremonial-mazahua.JPG" alt="Centro Ceremonial Mazahua">
+        <img src="IMG/centro-ceremonial-mazahua-2.jpg" alt="Centro Ceremonial Mazahua">
+      </div>
+
+      <div class="punto" id="punto10">
+        <div>
+          <h2>10. Parque Ecológico de Cacalomacán</h2>
+          <p>Ubicación: En el Parque Nacional del Nevado de Toluca.</p>
+          <p>Descripción: A una altura de 3,200 msnm, ofrece diversión, cabañas, zona de campamento, ciclismo de montaña, cabalgata y observación de flora y fauna.</p>
+          <p>Información adicional: Se pueden realizar recorridos con guías especializados y practicar rappel. El costo por pernocta varía según el tipo de alojamiento.</p>
+        </div>
+        <img src="IMG/parque-ecologico-cacalomacan.jpg" alt="Parque Ecológico de Cacalomacán">
+        <img src="IMG/parque-ecologico-cacalomacan-2.jpg" alt="Parque Ecológico de Cacalomacán">
+      </div>
+    <!-- Más secciones para otros puntos -->
+  </div>
+
+  <footer>
+    <p>Visita el Estado de México</p>
+  </footer>
+
+  <script>
+    function mostrarPunto(id) {
+      ocultarPuntos();
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function ocultarPuntos() {
+      var puntos = document.getElementsByClassName('punto');
+      for (var i = 0; i < puntos.length; i++) {
+        puntos[i].style.display = 'none';
+      }
+      document.getElementById('inicio').style.display = 'none';
+    }
+
+    // Mostrar la sección de inicio al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      mostrarPunto('inicio');
+    });
+  </script>
+</body>
+</html>
