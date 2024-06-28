@@ -33,10 +33,7 @@ img {
   max-width: 200px;
 }
 @media (max-width: 768px) {
-  img {
-    max-width: 100px;
-  }
-  .cuadro {
+    .cuadro {
     width: 90%;
   }
 }
