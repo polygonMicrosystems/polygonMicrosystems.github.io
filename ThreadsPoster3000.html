@@ -162,56 +162,63 @@
                 version: 'v18.0'
             });
 
-            // Check if user is already logged in
-            FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                    handleAuthResponse(response);
-                }
-            });
-        };
+       
+       
+        // Check if user is already logged in
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                handleAuthResponse(response);
+            }
+        });
+    };
 
-        // Load Facebook SDK
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+    // Load Facebook SDK
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
-        // Handle Facebook login
-        function handleFacebookLogin() {
+    // Handle Facebook login
+    function handleFacebookLogin() {
+        // Ensure that the SDK is fully loaded before calling FB.login
+        if (typeof FB !== 'undefined') {
             FB.login(function(response) {
                 handleAuthResponse(response);
             }, {
                 scope: 'public_profile,threads_content_publishing',
                 return_scopes: true
             });
+        } else {
+            console.error("Facebook SDK is not loaded.");
         }
+    }
 
-        // Handle authentication response
-        function handleAuthResponse(response) {
-            if (response.status === 'connected') {
-                userId = response.authResponse.userID;
-                accessToken = response.authResponse.accessToken;
-                showPostingSection();
-                showStatus('Logged in successfully!', 'success');
-            } else {
-                showLoginSection();
-                showStatus('Login failed. Please try again.', 'error');
-            }
+    // Handle authentication response
+    function handleAuthResponse(response) {
+        if (response.status === 'connected') {
+            userId = response.authResponse.userID;
+            accessToken = response.authResponse.accessToken;
+            showPostingSection();
+            showStatus('Logged in successfully!', 'success');
+        } else {
+            showLoginSection();
+            showStatus('Login failed. Please try again.', 'error');
         }
+    }
 
-        // Handle logout
-        function handleLogout() {
-            FB.logout(function(response) {
-                userId = '';
-                accessToken = '';
-                showLoginSection();
-                showStatus('Logged out successfully!', 'success');
-            });
-        }
+    // Handle logout
+    function handleLogout() {
+        FB.logout(function(response) {
+            userId = '';
+            accessToken = '';
+            showLoginSection();
+            showStatus('Logged out successfully!', 'success');
+        });
+    }
 
         // Handle posting to Threads
         async function handlePost() {
