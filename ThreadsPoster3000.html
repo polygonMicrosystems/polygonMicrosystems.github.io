@@ -1,322 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Threads Poster</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar en Threads</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f9;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f0f2f5;
-            padding: 20px;
-        }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
 
-        .container {
-            max-width: 500px;
-            margin: 40px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-        h1 {
-            text-align: center;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-        .input-group {
-            margin-bottom: 15px;
-        }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
 
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            min-height: 120px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            resize: vertical;
-        }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
 
-        textarea:focus {
-            outline: none;
-            border-color: #0095f6;
-        }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .btn-primary {
-            background-color: #0095f6;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #0081d6;
-        }
-
-        .btn-danger {
-            background-color: #ed4956;
-            color: white;
-            margin-top: 10px;
-        }
-
-        .btn-danger:hover {
-            background-color: #c72936;
-        }
-
-        .status {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .error {
-            background-color: #ffebee;
-            color: #c62828;
-            border: 1px solid #ffcdd2;
-        }
-
-        .success {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border: 1px solid #c8e6c9;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .character-count {
-            text-align: right;
-            color: #666;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-    </style>
+    #responseMessage {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Post to Threads</h1>
-        
-        <!-- Login Section -->
-        <div id="loginSection">
-            <button class="btn-primary" id="loginButton" onclick="handleFacebookLogin()">
-                Login with Facebook
-            </button>
-        </div>
+  <div class="container">
+    <h1>Publicar en Threads</h1>
+    <form id="threadsForm">
+      <label for="userId">User ID:</label>
+      <input type="text" id="userId" placeholder="Ingresa tu Threads User ID" required>
 
-        <!-- Posting Section -->
-        <div id="postingSection" class="hidden">
-            <div class="input-group">
-                <textarea 
-                    id="postText" 
-                    placeholder="What's on your mind?"
-                    maxlength="500"
-                    oninput="updateCharacterCount(this)"
-                ></textarea>
-                <div class="character-count" id="charCount">0/500</div>
-            </div>
-            <button class="btn-primary" id="postButton" onclick="handlePost()">
-                Post to Threads
-            </button>
-            <button class="btn-danger" id="logoutButton" onclick="handleLogout()">
-                Logout
-            </button>
-        </div>
+      <label for="accessToken">Access Token:</label>
+      <input type="text" id="accessToken" placeholder="Ingresa tu Access Token" required>
 
-        <div id="statusMessage" class="status"></div>
-    </div>
+      <label for="text">Texto (máx. 500 caracteres):</label>
+      <textarea id="text" placeholder="Escribe tu publicación aquí..." maxlength="500" required></textarea>
 
-    <script>
-        // Global variables to store user data
-        let userId = '';
-        let accessToken = '';
+      <button type="submit">Publicar</button>
+    </form>
+    <p id="responseMessage"></p>
+  </div>
 
-        // Initialize Facebook SDK
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: 562769056335022, // Replace with your Facebook App ID
-                cookie: true,
-                xfbml: true,
-                version: 'v18.0'
-            });
+  <script>
+    document.getElementById("threadsForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-       
-       
-        // Check if user is already logged in
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                handleAuthResponse(response);
-            }
+      // Obtener los datos del formulario
+      const userId = document.getElementById("userId").value.trim();
+      const accessToken = document.getElementById("accessToken").value.trim();
+      const text = document.getElementById("text").value.trim();
+
+      const responseMessage = document.getElementById("responseMessage");
+
+      // Validar entrada de texto
+      if (text.length > 500) {
+        responseMessage.textContent = "El texto excede el límite de 500 caracteres.";
+        responseMessage.style.color = "red";
+        return;
+      }
+
+      try {
+        // Paso 1: Crear el contenedor de texto
+        const containerResponse = await fetch(`https://graph.threads.net/v1.0/${userId}/threads`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            media_type: "TEXT",
+            text: text,
+            access_token: accessToken
+          })
         });
-    };
 
-    // Load Facebook SDK
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+        const containerData = await containerResponse.json();
 
-    // Handle Facebook login
-    function handleFacebookLogin() {
-        // Ensure that the SDK is fully loaded before calling FB.login
-        if (typeof FB !== 'undefined') {
-            FB.login(function(response) {
-                handleAuthResponse(response);
-            }, {
-                scope: 'public_profile',
-                return_scopes: true
-            });
-        } else {
-            console.error("Facebook SDK is not loaded.");
+        if (!containerResponse.ok) {
+          throw new Error(containerData.error?.message || "Error al crear el contenedor.");
         }
-    }
 
-    // Handle authentication response
-    function handleAuthResponse(response) {
-        if (response.status === 'connected') {
-            userId = response.authResponse.userID;
-            accessToken = response.authResponse.accessToken;
-            showPostingSection();
-            showStatus('Logged in successfully!', 'success');
-        } else {
-            showLoginSection();
-            showStatus('Login failed. Please try again.', 'error');
-        }
-    }
+        const creationId = containerData.id; // ID del contenedor creado
 
-    // Handle logout
-    function handleLogout() {
-        FB.logout(function(response) {
-            userId = '';
-            accessToken = '';
-            showLoginSection();
-            showStatus('Logged out successfully!', 'success');
+        // Paso 2: Publicar el contenedor
+        const publishResponse = await fetch(`https://graph.threads.net/v1.0/${userId}/threads_publish`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            creation_id: creationId,
+            access_token: accessToken
+          })
         });
-    }
 
-        // Handle posting to Threads
-        async function handlePost() {
-            const postText = document.getElementById('postText').value.trim();
-            
-            if (!postText) {
-                showStatus('Please enter some text to post', 'error');
-                return;
-            }
+        const publishData = await publishResponse.json();
 
-            showStatus('Creating post...', 'success');
-
-            try {
-                // Step 1: Create thread container
-                const createResponse = await fetch(
-                    `https://graph.threads.net/v1.0/${userId}/threads`,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${accessToken}`
-                        },
-                        body: JSON.stringify({
-                            media_type: 'TEXT',
-                            text: postText
-                        })
-                    }
-                );
-
-                if (!createResponse.ok) {
-                    throw new Error('Failed to create thread container');
-                }
-
-                const { id: containerId } = await createResponse.json();
-
-                showStatus('Processing... Please wait.', 'success');
-                
-                // Wait 30 seconds as recommended
-                await new Promise(resolve => setTimeout(resolve, 30000));
-
-                // Step 2: Publish thread
-                const publishResponse = await fetch(
-                    `https://graph.threads.net/v1.0/${userId}/threads_publish`,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${accessToken}`
-                        },
-                        body: JSON.stringify({
-                            creation_id: containerId
-                        })
-                    }
-                );
-
-                if (!publishResponse.ok) {
-                    throw new Error('Failed to publish thread');
-                }
-
-                document.getElementById('postText').value = '';
-                updateCharacterCount(document.getElementById('postText'));
-                showStatus('Posted successfully!', 'success');
-
-            } catch (error) {
-                console.error('Error posting to Threads:', error);
-                showStatus('Failed to post. Please try again.', 'error');
-            }
+        if (!publishResponse.ok) {
+          throw new Error(publishData.error?.message || "Error al publicar en Threads.");
         }
 
-        // UI Helper Functions
-        function showLoginSection() {
-            document.getElementById('loginSection').classList.remove('hidden');
-            document.getElementById('postingSection').classList.add('hidden');
-        }
-
-        function showPostingSection() {
-            document.getElementById('loginSection').classList.add('hidden');
-            document.getElementById('postingSection').classList.remove('hidden');
-        }
-
-        function showStatus(message, type) {
-            const statusElement = document.getElementById('statusMessage');
-            statusElement.textContent = message;
-            statusElement.className = `status ${type}`;
-            statusElement.style.display = 'block';
-
-            // Hide status after 5 seconds if it's a success message
-            if (type === 'success') {
-                setTimeout(() => {
-                    statusElement.style.display = 'none';
-                }, 5000);
-            }
-        }
-
-        function updateCharacterCount(textarea) {
-            const count = textarea.value.length;
-            document.getElementById('charCount').textContent = `${count}/500`;
-        }
-    </script>
+        // Mostrar mensaje de éxito
+        responseMessage.textContent = "¡Publicación realizada con éxito!";
+        responseMessage.style.color = "green";
+      } catch (error) {
+        // Mostrar mensaje de error
+        responseMessage.textContent = `Error: ${error.message}`;
+        responseMessage.style.color = "red";
+      }
+    });
+  </script>
 </body>
 </html>
