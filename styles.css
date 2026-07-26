@@ -37,6 +37,7 @@ iframe {
 
 .cuadro:last-of-type {
   margin: 20px auto 0;
+  margin-bottom:50px;
 }
 
 a {
