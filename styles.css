@@ -1,10 +1,18 @@
 body {
-  background-color: #018281;
+  background-color: #white;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/a/aa/Blue-skies-cumulus-clouds.jpg") center / cover no-repeat;
+  z-index: -1;
 }
 
 .cuadro {
@@ -24,7 +32,7 @@ iframe {
 }
 
 .cuadro:first-of-type {
-  margin-top: clamp(200px, 12vh, 200px);
+  margin-top: 200px;
 }
 
 .cuadro:last-of-type {
